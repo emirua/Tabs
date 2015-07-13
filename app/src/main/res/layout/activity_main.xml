@@ -17,11 +17,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <android.support.design.widget.TabLayout
+        <com.astuetz.PagerSlidingTabStrip
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tabBarSize"
-            app:tabTextAppearance="@style/MyTextAppearance" />
+            app:pstsTextAllCaps="false"
+            app:pstsIndicatorHeight="4dp"
+            app:pstsShouldExpand="true"/>
 
     </android.support.design.widget.AppBarLayout>
 
