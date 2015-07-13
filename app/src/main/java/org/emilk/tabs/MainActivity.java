@@ -46,19 +46,26 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpFragmentsInViewPager(ActionBar t) {
         t.setElevation(0);
+
         List<Fragment> fragments= new ArrayList<>();
-        List<String> titles= new ArrayList<>();
         fragments.add(new FragmentContacts());
         fragments.add(new FragmentPartidos());
+
+        List<String> titles= new ArrayList<>();
         titles.add("Contactos");
         titles.add("Partidos");
 
+        List<Integer> tabicons= new ArrayList<>();
+        tabicons.add(R.drawable.abc_ic_menu_moreoverflow_mtrl_alpha);
+        tabicons.add(R.drawable.abc_ic_go_search_api_mtrl_alpha);
 
-        FragmentListAdapter fA= new FragmentListAdapter(getSupportFragmentManager(),fragments, titles);
+
+        FragmentListAdapter fA= new FragmentListAdapter(getSupportFragmentManager(), MainActivity.this, fragments, titles, tabicons);
 
         viewPager.setAdapter(fA);
 
         tabLayout.setupWithViewPager(viewPager);
+
     }
 
     @Override
