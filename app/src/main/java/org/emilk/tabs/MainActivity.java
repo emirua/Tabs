@@ -10,7 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.emilk.tabs.Adapters.FragmentAdapter;
+import org.emilk.tabs.Adapters.FragmentListAdapter;
 import org.emilk.tabs.fragments.FragmentContacts;
 import org.emilk.tabs.fragments.FragmentPartidos;
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         ActionBar mtoolbar = getSupportActionBar();
-        mtoolbar.setTitle("Selecciona de las Tabs");
+        mtoolbar.setTitle("Selecciona una Tab");
         mtoolbar.setDisplayHomeAsUpEnabled(true);
 
         setUpFragmentsInViewPager(mtoolbar);
@@ -47,11 +47,14 @@ public class MainActivity extends AppCompatActivity {
     private void setUpFragmentsInViewPager(ActionBar t) {
         t.setElevation(0);
         List<Fragment> fragments= new ArrayList<>();
+        List<String> titles= new ArrayList<>();
         fragments.add(new FragmentContacts());
         fragments.add(new FragmentPartidos());
+        titles.add("Contactos");
+        titles.add("Partidos");
 
 
-        FragmentAdapter fA= new FragmentAdapter(getSupportFragmentManager(),fragments);
+        FragmentListAdapter fA= new FragmentListAdapter(getSupportFragmentManager(),fragments, titles);
 
         viewPager.setAdapter(fA);
 

@@ -9,13 +9,15 @@ import java.util.List;
 /**
  * Created by Emilio on 10/07/2015.
  */
-public class FragmentAdapter extends FragmentPagerAdapter {
+public class FragmentListAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> fragments;
+    private List<String> titles;
 
-    public FragmentAdapter(FragmentManager fm, List<Fragment> fragments) {
+    public FragmentListAdapter(FragmentManager fm, List<Fragment> fragments, List<String> titles) {
         super(fm);
         this.fragments = fragments;
+        this.titles= titles;
     }
 
     @Override
@@ -26,5 +28,10 @@ public class FragmentAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return fragments.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return titles.get(position);
     }
 }
